@@ -4,7 +4,7 @@ const server = require('../index.js');
 const db = require('../database/dbConfig.js')
 
 
-
+// a test route
 test('find', async () => {
     const res = await supertest(server).get('/api/auth')
     expect(res.status).toBe(200)
@@ -16,6 +16,8 @@ beforeEach(async () => {
     await db.seed.run()
 })
 
+
+// Register new user tests
 test('register new user', async () => {
     const res = await supertest(server)
         .post('/api/auth/register')
@@ -33,6 +35,8 @@ test('register new user without a proper password', async () => {
 })
 
 
+
+// Log in tests
 test('logging in new user', async () => {
     const res = await supertest(server)
         .post('/api/auth/login')
